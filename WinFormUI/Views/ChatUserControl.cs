@@ -33,7 +33,7 @@ namespace WinFormUI.Views
         {
             if (_userMainInfoModel.PhotoUrl != "" && _userMainInfoModel.PhotoUrl != null)
             {
-                pictureBoxAvatar.Load(_userMainInfoModel.PhotoUrl);
+                //pictureBoxAvatar.Load(_userMainInfoModel.PhotoUrl);
             }
 
             if (_userMainInfoModel.DisplayName != "" && _userMainInfoModel.DisplayName != null)

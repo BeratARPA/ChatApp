@@ -36,7 +36,7 @@ namespace WinFormUI.Views
 
             if (_firebaseManagement.CurrentUserMainModel.Users[0].PhotoUrl != "" && _firebaseManagement.CurrentUserMainModel.Users[0].PhotoUrl != null)
             {
-                pictureBoxAvatar.Load(_firebaseManagement.CurrentUserMainModel.Users[0].PhotoUrl);
+                //pictureBoxAvatar.Load(_firebaseManagement.CurrentUserMainModel.Users[0].PhotoUrl);
             }
         }
 
