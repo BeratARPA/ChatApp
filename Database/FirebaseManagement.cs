@@ -137,7 +137,7 @@ namespace Database
                 }
             }
 
-            return true;
+            return false;
         }
 
         public async Task<bool> AcceptFriendRequest(FriendRequest friendRequest)
@@ -409,7 +409,7 @@ namespace Database
                 }
             }
 
-            return true;
+            return false;
         }
 
         public async Task<bool> SendFriendshipRequest(string receiverEmail)
