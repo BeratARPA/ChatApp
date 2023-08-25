@@ -119,7 +119,7 @@ namespace Database
             string endpoint = await GetDatabaseFriendRequestsEndpoint(userEmail);
             string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-            if (response != null && response != "")
+            if (response != null || response != "")
             {
                 Dictionary<string, FriendRequest> model = JsonHelper.Deserialize<Dictionary<string, FriendRequest>>(response);
 
