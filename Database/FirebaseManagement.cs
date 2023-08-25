@@ -157,7 +157,7 @@ namespace Database
                 string json = JsonHelper.Serialize(friendRequest);
                 string response = await HttpRequest(endpoint, HttpMethod.Put.ToString(), json);
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     return true;
                 }
@@ -176,7 +176,7 @@ namespace Database
             {
                 string response = await HttpRequest(DatabaseUsersEndpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, User> model = JsonHelper.Deserialize<Dictionary<string, User>>(response);
 
@@ -204,7 +204,7 @@ namespace Database
             string endpoint = await GetDatabaseChatsEndpoint(userEmail);
             string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-            if (response != null && response != "")
+            if (response != null || response != "")
             {
                 Dictionary<string, Chat> model = JsonHelper.Deserialize<Dictionary<string, Chat>>(response);
 
@@ -239,7 +239,7 @@ namespace Database
                     string endpoint = await GetDatabaseChatsEndpoint(CurrentUserInfoModel.Email);
                     string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-                    if (response != null && response != "")
+                    if (response != null || response != "")
                     {
                         Dictionary<string, Chat> model = JsonHelper.Deserialize<Dictionary<string, Chat>>(response);
 
@@ -372,7 +372,7 @@ namespace Database
                 string endpoint = await GetDatabaseKeyFriendRequestEndpoint(CurrentUserInfoModel.Email, friendRequest);
                 string response = await HttpRequest(endpoint, HttpMethod.Delete.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     return true;
                 }
@@ -390,7 +390,7 @@ namespace Database
             string endpoint = await GetDatabaseFriendsEndpoint(userEmail);
             string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-            if (response != null && response != "")
+            if (response != null || response != "")
             {
                 Dictionary<string, Friend> model = JsonHelper.Deserialize<Dictionary<string, Friend>>(response);
 
@@ -431,7 +431,7 @@ namespace Database
                         string endpoint = await GetDatabaseFriendRequestsEndpoint(receiverEmail);
                         string response = await HttpRequest(endpoint, HttpMethod.Post.ToString(), json);
 
-                        if (response != null && response != "")
+                        if (response != null || response != "")
                         {
                             return true;
                         }
@@ -452,7 +452,7 @@ namespace Database
             {
                 string response = await HttpRequest(DatabaseUsersEndpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, User> model = JsonHelper.Deserialize<Dictionary<string, User>>(response);
 
@@ -480,7 +480,7 @@ namespace Database
             {
                 string response = await HttpRequest(DatabaseUsersEndpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, User> model = JsonHelper.Deserialize<Dictionary<string, User>>(response);
 
@@ -518,7 +518,7 @@ namespace Database
                     string json = JsonHelper.Serialize(requestData);
                     string response = await HttpRequest(endpoint, "PATCH", json);
 
-                    if (response != null && response != "")
+                    if (response != null || response != "")
                     {
                         return true;
                     }
@@ -557,7 +557,7 @@ namespace Database
 
                 string response = await HttpRequest(UsersEndpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     UserMainModel userMainModel = JsonHelper.Deserialize<UserMainModel>(response);
 
@@ -597,7 +597,7 @@ namespace Database
                 string endpoint = await GetDatabaseFriendsEndpoint(CurrentUserInfoModel.Email);
                 string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, Friend> model = JsonHelper.Deserialize<Dictionary<string, Friend>>(response);
 
@@ -632,7 +632,7 @@ namespace Database
                     string endpoint = await GetDatabaseFriendRequestsEndpoint(CurrentUserInfoModel.Email);
                     string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-                    if (response != null && response != "")
+                    if (response != null || response != "")
                     {
                         Dictionary<string, FriendRequest> model = JsonHelper.Deserialize<Dictionary<string, FriendRequest>>(response);
 
@@ -691,7 +691,7 @@ namespace Database
 
                 string response = await HttpRequest(SendOobCodeEndpoint, HttpMethod.Post.ToString(), json);
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     AuthOobCodeModel authOobCodeModel = JsonHelper.Deserialize<AuthOobCodeModel>(response);
 
@@ -722,7 +722,7 @@ namespace Database
                 string json = JsonHelper.Serialize(requestData);
                 string response = await HttpRequest(UpdateUserEndpoint, HttpMethod.Post.ToString(), json);
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     CurrentUserMainModel.Users[0] = JsonHelper.Deserialize<UserMainInfoModel>(response);
                     CurrentUserMainModel.Users[0].Password = password;
@@ -764,7 +764,7 @@ namespace Database
                 string json = JsonHelper.Serialize(requestData);
                 string response = await HttpRequest(SignUpEndpoint, HttpMethod.Post.ToString(), json);
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     UserInfoModel userInfoModel = JsonHelper.Deserialize<UserInfoModel>(response);
                     UserMainModel userMainModel = await GetUserInfo(userInfoModel.IdToken);
@@ -795,7 +795,7 @@ namespace Database
                 string json = JsonHelper.Serialize(requestData);
                 string response = await HttpRequest(UserInfoEndpoint, HttpMethod.Post.ToString(), json);
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     UserMainModel userMainModel = JsonHelper.Deserialize<UserMainModel>(response);
 
@@ -817,7 +817,7 @@ namespace Database
                 string endpoint = await GetDatabaseChatsMessagesEndpoint(CurrentUserInfoModel.Email, chatId);
                 string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, Models.Message> model = JsonHelper.Deserialize<Dictionary<string, Models.Message>>(response);
 
@@ -858,7 +858,7 @@ namespace Database
                 string endpoint = await GetDatabaseChatsMessagesEndpoint(CurrentUserInfoModel.Email, chatId);
                 string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, Models.Message> model = JsonHelper.Deserialize<Dictionary<string, Models.Message>>(response);
 
@@ -943,7 +943,7 @@ namespace Database
             string endpoint = await GetDatabaseChatsEndpoint(userEmail);
             string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-            if (response != null && response != "")
+            if (response != null || response != "")
             {
                 Dictionary<string, Chat> model = JsonHelper.Deserialize<Dictionary<string, Chat>>(response);
 
@@ -971,7 +971,7 @@ namespace Database
                 string endpoint = await GetDatabaseChatsEndpoint(email);
                 string response = await HttpRequest(endpoint, HttpMethod.Get.ToString());
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     Dictionary<string, Chat> model = JsonHelper.Deserialize<Dictionary<string, Chat>>(response);
 
@@ -1003,7 +1003,7 @@ namespace Database
                 string json = JsonHelper.Serialize(requestData);
                 string response = await HttpRequest(SignInEndpoint, HttpMethod.Post.ToString(), json);
 
-                if (response != null && response != "")
+                if (response != null || response != "")
                 {
                     CurrentUserInfoModel = JsonHelper.Deserialize<UserInfoModel>(response);
 
